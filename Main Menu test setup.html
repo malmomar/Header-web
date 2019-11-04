@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css\styleh.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<video autoplay muted id="myVideo">
+<source src="video\\driv.mp4" type="video/mp4" playbackRate = 0.5;>
+</video>
+<div class="content">
+	
+<center><input id="file-input" type="file" onchange="mytest2();"></center>
+<input type ="text" input id="fileNameToSaveAs" placeholder="Test Number" disabled>	
+<select type = "select" name="Dyno" input id="Dyno" Size = "9">
+  <option value="0258">0258</option>
+  <option value="3084">3084</option>
+  <option value="3088">3088</option>
+  <option value="3107">3107</option>
+  <option value="3186">3186</option>
+  <option value="3362">3362</option>
+  <option value="5419">5419</option>
+  <option value="5577">5577</option>
+  
+</select>
+<center><input type=button onClick= "createstructure()" value="Step 1: Folder Creater"></center>
+<center><input type="button" value="Step 2: Script Checkout" onclick="myFunction()"></center>
+<p id="demo"></p>
+<center>
+  <button class="tablinks" onclick="OpenC(event, 'main')">Main</button>
+  <button class="tablinks" onclick="OpenC(event, 'Testinfo')">Test Info</button>
+  <button class="tablinks" onclick="OpenC(event, 'Testpara')">Testing Parameters</button>
+  <button class="tablinks" onclick="OpenC(event, 'Hardwareinfo')">Hardware Info</button>
+  <button class="tablinks" onclick="OpenC(event, 'Lininginfo')">Lining Info</button>
+  <button class="tablinks" onclick="OpenC(event, 'plate')">Back Plate/Insulator</button>
+  <button class="tablinks" onclick="OpenC(event, 'Measurements')">Measurements</button>
+  <button class="tablinks" onclick="OpenC(event, 'Comments')">Comments</button>
+  <button class="tablinks" onclick="OpenC(event, 'Header')">Header Editor</button>
+ </center>
+
+<div id="page">
+<div id="Testinfo" class="tabcontent">
+ <form name="form1">   
+  
+    <label for="testnum">
+      <i>Test Number</i> <!-- =testnum - input example -->
+      <input type ="text" input id="testnum" placeholder="Test Number" required>
+      <i>Submitted By</i> <!-- =Submittedby - input example -->
+      <input type ="text" input id="Submittedby" placeholder="Submitted by" required>
+      <i>Owner</i> 
+      <input type ="text" input id="owner" placeholder="Owner" required>
+      <i>Project Name</i> 
+      <input type ="text" input id="projectname" placeholder="Project Name" required>
+      <i>Project Number</i> 
+      <input type ="text" input id="projectnumber" placeholder="Project Number" required>
+      <i>Reason For Test</i> 
+      <input type ="Reason" input id="reason" placeholder="Reason" required>
+    </label>
+	</div>
+	</form>
+	
+	 <div id="main" class="tabcontent">
+      <form name="form0">   
+      <i>Test Log info</i> 
+      <input type ="text" input id="testlog" placeholder="Test Log info" >
+      <i>Test Script</i> 
+      <input type ="text" input id="tscript" placeholder="Test Script" >
+      <i>Test Specification</i> 
+      <input type ="text" input id="tspecification" placeholder="Test Specification" >
+	</div>
+	</form>
+	
+	<div id="Testpara" class="tabcontent">
+	<form name="form2"> 
+	<label for="testnum">
+      <i>Pistons</i> <!-- =testnum - input example -->
+      <input type ="number" input id="pistonnum" placeholder="Number of Pistons" maxlength = "1" min = "1" max = "8" required>
+      <i>Piston/cylinder diameter (mm)</i> <!-- =Submittedby - input example -->
+      <input type ="text" input id="pistondia" placeholder="Piston/cylinder diameter" required>
+      <i>Rolling Radius (mm)</i> 
+      <input type ="text" input id="rollingrad" placeholder="Rolling Radius" required>
+      <i>Effective Radius (mm)</i> 
+      <input type ="text" input id="effradius" placeholder="Effective Radius" required>
+      <i>Required Intertia</i> 
+      <input type ="text" input id="reqinertia" placeholder="Required Intertia" required>
+    </label>
+	</div>
+	</form>
+
+	<div id="Hardwareinfo" class="tabcontent">
+	<form name="form3"> 
+	<label for="testnum">
+      <i>Brake Name</i> 
+      <input type ="text" input id="Brakename" placeholder="Brake Name" required>
+	<center>
+	<td><input type=button onClick="test();" value="Check Build">
+	</center>
+      <i>Fixture</i> <!-- =testnum - input example -->
+      <input type ="text" input id="fixture" placeholder="Fixture" required>
+      <i>Fixture type</i> <!-- =Submittedby - input example -->
+      <input type ="text" input id="fixturetype" placeholder="Fixture Type" required>
+      <i>Knuckle</i> 
+      <input type ="text" input id="knuckle" placeholder="knuckle" required>
+      <i>Drive Adapter</i> 
+      <input type ="text" input id="driveadapt" placeholder="Drive Adapter" required>
+      <i>Rotor/Drum ID</i> 
+      <input type ="text" input id="rotorid" placeholder="Rotor/Drum ID" required>
+      <i>Caliper</i> 
+      <input type ="text" input id="caliper" placeholder="Caliper" required>
+      <i>Anchor Bracket</i> 
+      <input type ="text" input id="anchor" placeholder="Anchor Bracket" required>
+      <i>Rotor Size</i> 
+      <input type ="text" input id="rotorsize" placeholder="Rotor Size" required>
+	  <i>Rotor Source New/Used</i> 
+      <input type ="text" input id="rotorsource" placeholder="Rotor Source" required>
+    </label>
+	</div>
+	</form>
+	
+	<div id="Lininginfo" class="tabcontent">
+	<form name="form4"> 
+	<label for="testnum">
+      <i>Batch inner</i> <!-- =testnum - input example -->
+      <input type ="text" input id="batchinner" placeholder="Batch inner" required>
+      <i>Batch outer</i> <!-- =Submittedby - input example -->
+      <input type ="text" input id="batchouter" placeholder="Batch outer" required>
+      <i>Material sales inner</i> 
+      <input type ="text" input id="Materialsalesinner" placeholder="Material sales inner" required>
+      <i>Material sales Inner</i> 
+      <input type ="text" input id="Materialsalesouter" placeholder="material sales outer" required>
+      <i>Pad inner</i> 
+      <input type ="text" input id="padinner" placeholder="Pad Inner" required>
+      <i>Pad Outer</i> 
+      <input type ="text" input id="padouter" placeholder="Pad Outer" required>
+      <i>Underlay inner</i> 
+      <input type ="text" input id="underlayinner" placeholder="Underlay inner" required>
+      <i>Underlay Outer</i> 
+      <input type ="text" input id="underlayouter" placeholder="Underlay Outer" required>
+      <i>Chamfer Inner</i> 
+      <input type ="text" input id="chamferinner" placeholder="Chamfer Inner" required>
+      <i>chamfer Outer</i> 
+      <input type ="text" input id="chamferouter" placeholder="chamfer outer" required>
+      <i>Slot inner</i> 
+      <input type ="text" input id="slotinner" placeholder="Slot inner" required>
+      <i>Slot Outer</i> 
+      <input type ="text" input id="slotouter" placeholder="Slot Outer" required>
+    </label>
+	</div>
+	</form>
+
+	<div id="plate" class="tabcontent">
+	<form name="form5"> 
+	<label for="testnum">
+      <i>Insulator Type (Inner\Leading)</i> 
+      <input type ="text" input id="insulatorinner" placeholder="Insulator Type (Inner\Leading)" required>
+      <i>Insulator Type (Outer/Trailing)</i> 
+      <input type ="text" input id="insulatorouter" placeholder="Insulator Type (Inner\Leading)" required>
+    </label>
+	</div>
+	</form>
+	
+    <div id="Measurements" class="tabcontent">
+	<form name="form6"> 
+	<label for="testnum">
+      <i>Hardness (Inner\Leading)</i> 
+      <input type ="text" input id="hardinner" placeholder="Hardness (Inner\Leading)" required>
+      <i>Hardness (outer\Leading)</i> 
+      <input type ="text" input id="hardouter" placeholder="Hardness (outer\Leading)" required>
+      <i>compression (Inner\Leading)</i> 
+      <input type ="text" input id="compinner" placeholder="compression(Inner\Leading)" required>
+      <i>compression (outer\Leading)</i> 
+      <input type ="text" input id="compouter" placeholder="compression(outer\Leading)" required>
+    </label>
+	</div>
+	</form>
+
+	<div id="Comments" class="tabcontent">
+	<form name="form7"> 
+	<label for="testnum">
+      <i>Environmental Conditions</i> 
+      <input type ="text" input id="econdition" placeholder="Environmental Conditions" required>
+    </label>
+	<label for="testnum">
+      <i>Technician comments</i> 
+      <input type ="text" input id="techcomm" placeholder="Technician comments" required>
+    </label>
+	<label for="testnum">
+      <i>Test Engineering comments</i> 
+      <input type ="text" input id="testeng" placeholder="Test Engineering comments" required>
+    </label>
+	</form>
+	</div>
+	
+	<div id="Header" class="tabcontent">
+	<form name="form8"> 
+	<label for="testnum">
+    <colspan="2"><textarea type = "textarea" id="inputTextToSave"></textarea>
+	<input id="Button1" type="button" value="Step 3: Update Header" onclick="loadFileAsText()"/>
+    <input id="Button1" type="button" value="Step 4: Create Header(.DSH)" onclick="WriteToFile()"/>
+	<input id="Button1" type="button" value="Step 5: Create Header(.DSH) ON DYNO" onclick="WriteToDyno()"/>
+    </label>
+	</form>
+	</div>
+</body>
+<script src="js/main header.js"></script>
+</html>
+

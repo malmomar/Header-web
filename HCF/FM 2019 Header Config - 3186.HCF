@@ -1,0 +1,258 @@
+;FM 2019 Header Config-3186 Header Configuration
+;***************************************************************
+;** This file defines the operation of the test header editor **
+;***************************************************************
+;**         This file should not be modified without          **
+;**           consulting Link Engineering Company.            **
+;***************************************************************
+
+;Allowable Variable numbers are 407..418, 420..749
+;   Note: The following variables are automaticly saved in the header file.
+;  Do Not include them for editing.
+;  400 = Creation date "mm/dd/yy"
+;  401 = Creation time "hh:mm:ss"
+;  402 = Last Updated date "mm/dd/yy"
+;  403 = Last Updated time "hh:mm:ss"
+;  404 = Datalogger version number
+;  405 = Programmer version number
+;  406 = Dyno number
+;  419 = header configuration file name.
+;  500-509 = variables also saved in the raw file (if changed) }
+;  Reserved variable numbers...
+;     -1 Force a new page.
+;
+;Types:
+;  1  = string (in string prompts, spaces are speced as '_')
+;  2  = real
+;  3  = Channel descriptions
+;  4  = GetChoice
+;     For GetChoice, set length, min, max to zero
+;     Set EngUnit to the unit number of the field
+;     if the field is to be a numeric choice type.
+;     Put the field remark, then choice1, choice2
+;     etc. on the remark line.
+;
+;  Note: The Min and Max fields are limits in base (native) units,
+;  refer to the UNITS.CFG file for base units for the units
+;  selected in the EngUnit and MetUnit fields. If string input
+;  is selected, the Min field selects string input options. The
+;  options available are as follows...
+;                   1   Convert all characters to upper case.
+;     2         Clear the field on the first chr input.
+;     8         Only allow numeric characters.
+;  Add the options desired from the above table and place the result
+;  in the Min column.
+
+;Var  Type  Length   Min or   Max   EngUnit  MetUnit  Decimals
+;Prompt        Opt
+
+-1      Test_Info
+
+440   3  16 1
+
+407   1  20 3
+   Test_Card_Number
+
+415   1  30 0
+   Submitted_By
+
+413   1  75 0
+   Test_Owner
+
+428   1  75 0
+   Project_Name
+
+410   1  30 0
+   Project_Number
+
+422   1  75 0
+   Reason_For_Test
+
+442   1  75 0
+   Brake_Name
+
+408   1  75 0
+   Test_Script
+
+409   1  75 0
+   Test_Specification
+
+411   4  0  0
+   Technician Duane_Smith Sam_Tawiah Rick_Stratton David_Murphy Alex_Anderson John_Laxton Eric_Lennon
+
+412   4  0  0
+   Double_Check_Technician Duane_Smith Sam_Tawiah Rick_Stratton David_Murphy Alex_Anderson John_Laxton Eric_Lennon
+
+-1      Testing_Parameters
+
+530   2  20 1  4  2  2  0
+   Number_of_Pistons
+
+510   2  20 0.5   5  50 51 4
+   Piston/Cylinder_Diameter
+
+500   2  20 0  50 50 51 3
+   Rolling_Radius
+
+511   2  20 0  10 50 51 3
+   Effective_Radius
+
+501   2  20 0  150   60 61 3
+   Required_Inertia
+
+502   2  20 0  150   60 61 3
+   Actual_Inertia
+
+505   2         20      0  10 2  2  6
+   Coefficient_Multiplier
+
+536   4  0  0  2  0  0
+   Brake_Type Disc Drum
+
+443   4  0  0
+   Brake_(Front/Rear) Front_Disc Rear_Disc Rear_Drum Rear_DIH
+
+508   4  0  0  0  0  0  3
+   Brake_Orientation_(Left/Right) Left Right
+
+-1            Hardware_Info
+
+430   1  75 0
+   Fixture
+
+431   4  0  0
+   Fixture_Type Suspension Knuckle Rigid
+
+674   1  75 1
+   Knuckle
+
+696   1  75 1
+   Drive_Adapter
+
+433   1  75 0
+   Rotor/Drum_ID
+
+432   1  75 1
+   Caliper
+
+695   1  75 1
+   Anchor_Bracket
+
+434   1  75 0
+   Rotor_Size
+
+456   4  0  0
+   Rotor/Drum_Type Vented_Normal_Hat Solid_Normal_Hat Vented_Inverted_Hat Solid_Inverted_Hat Vented_DIH Solid_DIH 
+
+457   4  0  0
+   Rotor/Drum_Finish New,_Turned,_Coated New,_Turned,_Non-Coated New,_Ground,_Coated New,_Ground,_Non-Coated Used,_Turned,_Coated Used,_Turned,_Non-Coated Used,_Ground,_Coated Used,_Ground,_Non-Coated
+
+454   1  75 0
+   Rotor_Source_(New_Used TR#):
+
+-1            Lining_Info
+416   1  75 0
+   Batch_Number_Pad_(Inner/Leading)
+
+414   1  75 0
+   Batch_Number_Pad_(Outer/Trailing)
+
+417   1  75 0
+   Material_Sales_Code_(Inner/Leading)
+
+418   1  75 0
+   Material_Sales_Code_(Outer/Trailing)
+
+436   1  75 0
+   Pad/Lining_ID_(Inner/Leading)
+
+438   1  75 0
+   Pad/Lining_ID_(Outer/Trailing)
+
+435   4  0 0
+   Lining_Conditions_(Inner/Leading) Half_Thickness Scorched Used New_Scorched New_No-Scorch Other
+
+437   4  0  0
+   Lining_Conditions_(Outer/Trailing) Half_Thickness Scorched Used New_Scorched New_No-Scorch Other
+
+675      4  75 0
+   Attachment_Type_(Inner/Leading) IM Bonded Riveted Other
+
+676      4        75       0
+   Attachment_Type_(Outer/Trailing) IM Bonded Riveted Other
+
+681      1        75       0
+   Underlayer_(Inner/Leading)
+
+682      1        75       0
+   Underlayer_(Outer/Trailing)
+
+683      1        75       0
+   Chamfer_(Inner/Leading)
+
+684      1        75       0
+   Chamfer_(Outer/Trailing)
+
+685      1        75       0
+   Slot_(Inner/Leading)
+
+686      1        75       0
+   Slot_(Outer/Trailing)
+
+-1      Back_Plate_/_Insulator
+
+677      4        75       0
+   Insulator_Inner_(painted,_not_painted) Painted Not_Painted
+
+678      4        75       0
+   Insulator_Outer_(painted,_not_painted) Painted Not_Painted
+
+699      4        75       0
+   Back_Plate_Painted_before_or_after_Insulator_Inner Before After NA
+
+700      4        75       0
+   Back_Plate_Painted_before_or_after_Insulator_Outer Before After NA
+
+679      1        75       0
+   Insulator_Type_(Inner/Leading)
+
+680      1        75       0
+   Insulator_Type_(Outer/Trailing)
+-1      Measurements
+689   1  30 0
+   Hardness_(Inner/Leading)
+
+690   1  30 0
+   Hardness_(Outer/Trailing)
+
+691   1  30 0
+   Compression_(Inner/Leading)
+
+692   1  30 0
+   Compression_(Outer/Trailing)
+
+693   1  30 0
+   Grindosonic_(Inner/Leading)
+
+694   1  30 0
+   Grindosonic_(Outer/Trailing)
+
+697   1  10 0
+   Microphone_Gain
+
+-1      Comments
+
+421   1  75 0
+   Environmental_Conditions
+
+698   4  0  0
+   Test_Status Normal Re-Run
+
+426   1  75 0
+   Technician_Comments
+
+748   1  75 0
+   Test_Engineering_Comments
+
+420   1  75 0
+   Test_Log_Info
