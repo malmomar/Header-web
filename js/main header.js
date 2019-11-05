@@ -8,7 +8,8 @@ function openModal() {
 function closeModal() {
   modal.style.display = 'none';
 }
-function mytest2() {
+// open excel and read cell values
+function openexcel() {
 var Excel;
 var fileVal=document.getElementById("file-input");
 Excel = new ActiveXObject("Excel.Application");
@@ -65,7 +66,7 @@ Excel.Application.Quit();
 Excel = null;
 }
 
-
+\\ tab function
 function OpenC(evt, cityName) {
 
   var i, tabcontent, tablinks;
@@ -80,8 +81,7 @@ function OpenC(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-	
+\\ read text file	
 function loadFileAsText(){  
 var mdyno = document.getElementById("Dyno").value;
    var filename = 'K:\\Header\\DSH\\' + mdyno + '.txt';
@@ -101,6 +101,7 @@ var mdyno = document.getElementById("Dyno").value;
 	if (seconds < 10) {
 	 seconds = "0" + seconds;
   }
+	\\ find values in the text file then replace with following values
 	     ForReading = 1;
 	     fso = new ActiveXObject('Scripting.FileSystemObject');
 	     file = fso.OpenTextFile(filename, ForReading, false);
@@ -164,6 +165,7 @@ s.write(content);
 s.Close();
 }
 
+\\ if web application is opened on dyno this sends header to correct path
 function WriteToDyno()
 {
 var foxtr = document.getElementById("fileNameToSaveAs").value;
@@ -177,15 +179,13 @@ s.Close();
 
 } 
 
-		 
+\\ get both values to input in folder creater excel macro	 
 function myFunction() {
 var foxtr = document.getElementById("fileNameToSaveAs").value;
 var mdyno = document.getElementById("Dyno").value;
 window.open("K:\\Dyno Testing\\" + mdyno + "\\" + foxtr);
 } 
-		 
-		 
-		 
+\\required fields red		 	 
 function checkforblank() {
 	if (document.getElementById('pistonnum').value == "") {
 		errormessage += "Enter test number\n";
@@ -193,12 +193,13 @@ function checkforblank() {
 		return false;
 	}
 }
+\\ check part avaliability 
 function test() {
         var Excel = new ActiveXObject("Excel.Application");
 		Excel.Visible = false;
         Excel.Workbooks.Open("S:\\4 Dyno Testing\\Dyno Hardware Inventory\\Main Inventory 1.9.xlsm");
       }
-	  
+\\ run excel macro that modified folders	  
 function createstructure() { 
 		var foxtr = document.getElementById("fileNameToSaveAs").value;
 		var mdyno = document.getElementById("Dyno").value;
