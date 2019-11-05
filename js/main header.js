@@ -66,7 +66,7 @@ Excel.Application.Quit();
 Excel = null;
 }
 
-\\ tab function
+// tab function
 function OpenC(evt, cityName) {
 
   var i, tabcontent, tablinks;
@@ -81,7 +81,7 @@ function OpenC(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-\\ read text file	
+// read text file	
 function loadFileAsText(){  
 var mdyno = document.getElementById("Dyno").value;
    var filename = 'K:\\Header\\DSH\\' + mdyno + '.txt';
@@ -165,7 +165,7 @@ s.write(content);
 s.Close();
 }
 
-\\ if web application is opened on dyno this sends header to correct path
+// if web application is opened on dyno this sends header to correct path
 function WriteToDyno()
 {
 var foxtr = document.getElementById("fileNameToSaveAs").value;
@@ -179,7 +179,7 @@ s.Close();
 
 } 
 
-\\ get both values to input in folder creater excel macro	 
+// get both values to input in folder creater excel macro	 
 function myFunction() {
 var foxtr = document.getElementById("fileNameToSaveAs").value;
 var mdyno = document.getElementById("Dyno").value;
@@ -193,13 +193,13 @@ function checkforblank() {
 		return false;
 	}
 }
-\\ check part avaliability 
+// check part avaliability 
 function test() {
         var Excel = new ActiveXObject("Excel.Application");
 		Excel.Visible = false;
         Excel.Workbooks.Open("S:\\4 Dyno Testing\\Dyno Hardware Inventory\\Main Inventory 1.9.xlsm");
       }
-\\ run excel macro that modified folders	  
+// run excel macro that modified folders	  
 function createstructure() { 
 		var foxtr = document.getElementById("fileNameToSaveAs").value;
 		var mdyno = document.getElementById("Dyno").value;
